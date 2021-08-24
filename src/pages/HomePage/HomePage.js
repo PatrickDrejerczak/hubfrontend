@@ -1,25 +1,23 @@
 import React from "react";
-import BarChart from "../../components/BarChart";
-import DonePieChart from "../../components/PieCharts/TotalCompleteAndPending";
-import TicketPieChart from "../../components/PieCharts/TotalRequestAndDonate";
+// import BarChart from "../../components/BarChart";
+// import DonePieChart from "../../components/charts/totaldonevspending";
+// import TicketPieChart from "../../components/charts/totalrequestvsdonate";
 import SideBar from "../../components/SideBar";
 import DoughnutChartDonate from "../../components/DonutChartDonated";
 import DoughnutChartReceiver from "../../components/DoughnutChartReceiver";
-import ProgressiveTotalCompleteAndPending from '../../components/BarChart/ProgressiveTotalCompleteAndPending'
+import TinaTestBarChart from "../../components/TinaTestBarChart";
+
 const HomePage = () => {
   return (
-    <>
-      <BarChart />
-      <TicketPieChart />
-      <DonePieChart />
+    <div>
       <SideBar />
-      <BarChart />
+      {/* <BarChart />
       <TicketPieChart />
-      <DonePieChart /> 
-      <DoughnutChartDonate />
+      <DonePieChart /> */}
+      {/* <DoughnutChartDonate />
       <DoughnutChartReceiver />
-      <ProgressiveTotalCompleteAndPending />
-    </>
+      <TinaTestBarChart /> */}
+    </div>
   );
 };
 
