@@ -1,29 +1,10 @@
-<<<<<<< HEAD:src/components/charts/totalrequestvsdonate.js
-import React from "react";
-import { Doughnut } from "react-chartjs-2";
-import charity from "../../charity.json";
-=======
 import React,{ useEffect } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import ticketActions from '../../redux/actions/ticket.action';
 import { useDispatch, useSelector } from 'react-redux';
->>>>>>> d45e12b128eb1f27bf67d4706b9a954c38612655:src/components/PieCharts/TotalRequestAndDonate.js
 
 
 function TicketPieChart() {
-<<<<<<< HEAD:src/components/charts/totalrequestvsdonate.js
-  function getTotalTicketOf(name) {
-    let totalTickets = 0;
-    charity.map((ticket) => {
-      if (ticket.ticketType === name) {
-        totalTickets += 1;
-      }
-    });
-    return totalTickets;
-  }
-  const totalReq = getTotalTicketOf("receive");
-  const totalDonate = getTotalTicketOf("donate");
-=======
   const dispatch = useDispatch()
 
       useEffect(() => {
@@ -45,7 +26,6 @@ function TicketPieChart() {
     }
     const totalReq = getTotalTicketOf("receive")
     const totalDonate = getTotalTicketOf("donate")
->>>>>>> d45e12b128eb1f27bf67d4706b9a954c38612655:src/components/PieCharts/TotalRequestAndDonate.js
   const data = {
     labels: ["Total Receiving Tikets", "Total Donating Tickets"],
     datasets: [
@@ -75,11 +55,7 @@ function TicketPieChart() {
   return (
     <>
       <div className="header">
-<<<<<<< HEAD:src/components/charts/totalrequestvsdonate.js
-        <h1 className="title">Donations vs. Requests</h1>
-=======
         <h1 className="title">Percentages of receiving and donating tickets</h1>
->>>>>>> d45e12b128eb1f27bf67d4706b9a954c38612655:src/components/PieCharts/TotalRequestAndDonate.js
         <div className="links"></div>
       </div>
       <Doughnut data={data} />
