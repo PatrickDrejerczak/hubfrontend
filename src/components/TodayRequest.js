@@ -32,7 +32,7 @@ const TodayRequest = () => {
   return (
     <div>
       <div className="header">
-        <h1 className="title"> {totalTickets} </h1>
+        <h1 className="title"> {totalTickets} requests </h1>
       </div>
     </div>
   );

@@ -2,7 +2,8 @@ import React from "react";
 import "./SideBar.css";
 import { useState } from "react";
 import "antd/dist/antd.css";
-import { Layout, Menu, Breadcrumb, Row, Col, Card } from "antd";
+import { Layout, Menu, Statistic, Row, Col, Card } from "antd";
+import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 import {
   DesktopOutlined,
   PieChartOutlined,
@@ -22,7 +23,6 @@ import MostRequestIteam from "./MostRequestIteam";
 import TodayRequest from "./TodayRequest";
 
 import DailyDonate from "./TotalDonateToday";
-
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -70,19 +70,31 @@ const SideBar = () => {
                   className="infoCard"
                 >
                   <TodayRequest />
+                  <Statistic
+                    title="Increase of"
+                    value={11.28}
+                    precision={2}
+                    valueStyle={{ color: "#3f8600" }}
+                    prefix={<ArrowUpOutlined />}
+                    suffix="%"
+                  />
                 </Card>
               </Col>
               <Col span={8}>
-
                 <Card
                   title="Today´s Donations"
                   bordered={false}
                   className="infoCard"
                 >
-                 <DailyDonate />
-             
-                 
-
+                  <DailyDonate />
+                  <Statistic
+                    title="Decrease of"
+                    value={9.3}
+                    precision={2}
+                    valueStyle={{ color: "#cf1322" }}
+                    prefix={<ArrowDownOutlined />}
+                    suffix="%"
+                  />
                 </Card>
               </Col>
               <Col span={8}>
