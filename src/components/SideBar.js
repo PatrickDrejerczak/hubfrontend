@@ -49,7 +49,10 @@ const SideBar = () => {
         </Menu>
       </Sider>
       <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }} />
+        <Header
+          className="site-layout-background"
+          style={{ padding: 0, backgroundColor: "#001538" }}
+        />
         <Content style={{ margin: "0 16px" }}>
           <div className="site-card-wrapper">
             <Row gutter={16}>

@@ -4,10 +4,7 @@ import { useState } from "react";
 import "antd/dist/antd.css";
 import { Layout, Menu, Statistic, Row, Col, Card } from "antd";
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
-import {
-  DesktopOutlined,
-  PieChartOutlined,
-} from "@ant-design/icons";
+import { DesktopOutlined, PieChartOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 import "./SideBar.css";
@@ -42,7 +39,10 @@ const SideBarNew = () => {
         </Menu>
       </Sider>
       <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }} />
+        <Header
+          className="site-layout-background"
+          style={{ padding: 0, backgroundColor: "#001538" }}
+        />
         <Content style={{ margin: "0 16px" }}>
           <div className="site-card-wrapper">
             <Row gutter={16}>
@@ -91,7 +91,7 @@ const SideBarNew = () => {
               </Col>
             </Row>
           </div>
-
+          <br />
           <div className="site-card-wrapper">
             <Row gutter={16}>
               <Col span={24}>

@@ -90,7 +90,7 @@ const TinaTestBarChart = () => {
     ],
     datasets: [
       {
-        backgroundColor: `rgba(2, 99, 135, 0.2)`,
+        backgroundColor: `rgba(2, 99, 135, 1)`,
         data: [
           totalDonateRice,
           totalDonateEgg,
@@ -106,7 +106,7 @@ const TinaTestBarChart = () => {
         label: "Total Donate   ",
       },
       {
-        backgroundColor: `rgba(2, 99, 132, 1)`,
+        backgroundColor: `rgba(210, 99, 132, 1)`,
         data: [
           totalReceiveRice,
           totalReceiveEgg,
