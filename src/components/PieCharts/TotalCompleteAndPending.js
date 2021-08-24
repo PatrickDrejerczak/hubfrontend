@@ -1,28 +1,22 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
 import { Doughnut } from 'react-chartjs-2';
-import charity from '../../charity.json'
-
-// function getDonatedItems(name) {
-//     let donatedItems = 0
-//     charity.map((ticket)=>{
-//         if (ticket.ticketType === "donated") {
-//             ticket.items.map((item) => {
-//                 if (item.itemName === name) {
-//                     donatedItems += item.quantity
-//                 }
-//             })
-//         }
-//     })
-//     return donatedItems
-// }
-
-
+import ticketActions from '../../redux/actions/ticket.action';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 function DonePieChart() {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+      dispatch(ticketActions.getTickets());
+  }, [dispatch]);
+
+  const state = useSelector(state => state)
+  const tickets = state.ticketReducer.tickets
+
     function getTotalTicketOf(name) {
         let totalTickets = 0
-        charity.map((ticket)=>{
+        tickets.map((ticket)=>{
             if (ticket.status === name) {
                 totalTickets+=1
             }
@@ -32,7 +26,7 @@ function DonePieChart() {
     const totalReq = getTotalTicketOf("pending")
     const totalDonate = getTotalTicketOf("complete")
   const data = {
-    labels: ["Total Pending Tikets", "Total Complete Tickets"],
+    labels: ["Total Pending Tickets", "Total Complete Tickets"],
     datasets: [
       {
         label: "# of Votes",
@@ -60,7 +54,7 @@ function DonePieChart() {
   return (
     <>
       <div className="header">
-        <h1 className="title">Percentages of each item donated</h1>
+        <h1 className="title">Percentages of pending and complete tickets</h1>
         <div className="links"></div>
       </div>
       <Doughnut data={data} />
