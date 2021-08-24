@@ -14,12 +14,11 @@ import {
 import "./SideBar.css";
 
 import BarChart from "../components/BarChart";
-// import DoughnutChartDonate from "../components/DonutChartDonated";
-// import DoughnutChartReceiver from "../components/DoughnutChartReceiver";
-// import DonePieChart from "../components/charts/totaldonevspending";
 import TotalCompleteAndPending from "../components/PieCharts/TotalCompleteAndPending";
 import TinaTestBarChart from "./TinaTestBarChart";
+import ProgressiveTotalCompleteAndPending from "./BarChart/ProgressiveTotalCompleteTickets";
 import MostRequestIteam from "./MostRequestIteam";
+import TodayRequest from "./TodayRequest";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -58,10 +57,6 @@ const SideBar = () => {
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }} />
         <Content style={{ margin: "0 16px" }}>
-          <Breadcrumb style={{ margin: "16px 0" }}>
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-          </Breadcrumb>
           <div className="site-card-wrapper">
             <Row gutter={16}>
               <Col span={8}>
@@ -70,7 +65,7 @@ const SideBar = () => {
                   bordered={false}
                   className="infoCard"
                 >
-                  623
+                  <TodayRequest />
                 </Card>
               </Col>
               <Col span={8}>
@@ -114,6 +109,15 @@ const SideBar = () => {
               <Col span={24}>
                 <Card>
                   <TinaTestBarChart />
+                </Card>
+              </Col>
+            </Row>
+          </div>
+          <div className="site-card-wrapper">
+            <Row gutter={16}>
+              <Col span={24}>
+                <Card>
+                  <ProgressiveTotalCompleteAndPending />
                 </Card>
               </Col>
             </Row>
