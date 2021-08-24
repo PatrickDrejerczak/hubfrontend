@@ -31,7 +31,7 @@ const SideBarNew = () => {
         onCollapse={() => setCollapsed(!collapsed)}
       >
         <div className="logo" />
-        <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
+        <Menu theme="dark" defaultSelectedKeys={["2"]} mode="inline">
           <Menu.Item key="1" icon={<PieChartOutlined />}>
             <Link to="/">Overview</Link>
           </Menu.Item>
