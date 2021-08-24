@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 import ticketActions from '../../redux/actions/ticket.action';
 import { useDispatch, useSelector } from 'react-redux';
 // const BACKEND_API = process.env.REACT_APP_BACKEND_API;
@@ -89,7 +89,7 @@ const ProgressiveTotalCompleteAndPending = () => {
             <div className='header'>
                 <h1 className='title'>Total completed tickets progressively</h1>
             </div>
-            <Bar data={data} options={options} />
+            <Line data={data} options={options} />
         </div>
     )
 }
