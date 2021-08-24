@@ -15,25 +15,25 @@ const DailyDonate = () => {
   const tickets = state.ticketReducer.tickets;
 
   function getTotalTicketOf(name) {
-    let totalTickets = 0
+    let totalTickets = 0;
     tickets.map((ticket) => {
       if (ticket.ticketType === name) {
-        totalTickets += 1
+        totalTickets += 1;
       }
-    })
-    return totalTickets
+    });
+    return totalTickets;
   }
 
-  const totalDonate = getTotalTicketOf("donate")
-  const DailyDonate = Math.max(
-    totalDonate
-  );
+  const totalDonate = getTotalTicketOf("donate");
+  const DailyDonate = Math.max(totalDonate);
   console.log("donate", DailyDonate);
 
   return (
     <div>
       <div className="header">
-        <h1 className="title">{DailyDonate} donations </h1>
+        <h1 className="title" style={{ fontSize: 23 }}>
+          {DailyDonate} donations{" "}
+        </h1>
       </div>
     </div>
   );
