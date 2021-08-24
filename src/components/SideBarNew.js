@@ -7,17 +7,10 @@ import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 import {
   DesktopOutlined,
   PieChartOutlined,
-  FileOutlined,
-  TeamOutlined,
-  UserOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 import "./SideBar.css";
-
-import BarChart from "../components/BarChart";
-import TotalCompleteAndPending from "../components/PieCharts/TotalCompleteAndPending";
-import TinaTestBarChart from "./TinaTestBarChart";
 import ProgressiveTotalCompleteAndPending from "./BarChart/ProgressiveTotalCompleteTickets";
 import MostRequestIteam from "./MostRequestIteam";
 
@@ -28,7 +21,7 @@ import DailyDonate from "./TotalDonateToday";
 const { Header, Content, Sider } = Layout;
 const { SubMenu } = Menu;
 
-const SideBar = () => {
+const SideBarNew = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
@@ -98,27 +91,12 @@ const SideBar = () => {
               </Col>
             </Row>
           </div>
-          <br />
-          <div className="site-card-wrapper">
-            <Row gutter={16}>
-              <Col span={16}>
-                <Card>
-                  <BarChart />
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card>
-                  <TotalCompleteAndPending />
-                </Card>
-              </Col>
-            </Row>
-          </div>
-          <br />
+
           <div className="site-card-wrapper">
             <Row gutter={16}>
               <Col span={24}>
                 <Card>
-                  <TinaTestBarChart />
+                  <ProgressiveTotalCompleteAndPending />
                 </Card>
               </Col>
             </Row>
@@ -129,4 +107,4 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default SideBarNew;
