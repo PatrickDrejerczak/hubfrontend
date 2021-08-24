@@ -15,20 +15,46 @@ const VerticalBar = () => {
 
     const state = useSelector(state => state)
     const tickets = state.ticketReducer.tickets
+
     const loading = state.ticketReducer.loading
+    
+    function getTotalTicketOf(name,weeksAgo) {
+        let totalTickets = 0
+        tickets.map((ticket)=>{
+            if (ticket.ticketType === name&& ticket.weeksAgo === weeksAgo) {
+                totalTickets+=1
+               
+            }
+        })
+        return totalTickets
+    }
+    const totalReqLatest = getTotalTicketOf("receive",0)
+    const totalReqOneWeek = getTotalTicketOf("receive",1)
+    const totalReqTwoWeek = getTotalTicketOf("receive",2)
+    const totalReqThreeWeek = getTotalTicketOf("receive",3)
+    
+    const totalDonateLatest = getTotalTicketOf("donate",0)
+    const totalDonateOneWeek = getTotalTicketOf("donate",1)
+    const totalDonateTwoWeek = getTotalTicketOf("donate",2)
+    const totalDonateThreeWeek = getTotalTicketOf("donate",3)
+
+    console.log('latest',totalReqLatest)
+    console.log('oneweek',totalReqOneWeek)
+    console.log('twoweek',totalReqTwoWeek)
+    console.log('twoweek',totalReqThreeWeek)
 
     const data = {
-        labels: ['18/6', '19/6', '20/6', '21/6', '22/6', '23/6'],
+        labels: ["Three week ago", "Two week ago","One week ago", "Latest"],
 
         datasets: [
             {
                 backgroundColor: `rgba(220, 99, 135, 0.2)`,
-                data: [18, 22, 19, 27, 15, 30, 20],
+                data: [totalReqThreeWeek, totalReqTwoWeek, totalReqOneWeek, totalReqLatest],
                 label: "Total Request",
             },
             {
                 backgroundColor: `rgba(255, 99, 132, 1)`,
-                data: [11, 15, 12, 29, 20, 25, 13],
+                data: [totalDonateThreeWeek,totalDonateTwoWeek,totalDonateOneWeek,totalDonateLatest],
                 label: "Total Donation",
             },
         ],
@@ -49,7 +75,7 @@ const VerticalBar = () => {
     return (
         <div>
             <div className='header'>
-                <h1 className='title'>Vertical Bar Chart</h1>
+                <h1 className='title'>Total donation and total receive tickets</h1>
             </div>
             <Bar data={data} options={options} />
         </div>
