@@ -75,7 +75,7 @@ const VerticalBar = () => {
     return (
         <div>
             <div className='header'>
-                <h1 className='title'>Total donation and total receive tickets</h1>
+                <h1 className='title'>Total receiving and donating tickets</h1>
             </div>
             <Bar data={data} options={options} />
         </div>
