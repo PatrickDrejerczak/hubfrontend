@@ -1,6 +1,6 @@
-import React from 'react';
-import { Doughnut } from 'react-chartjs-2';
-import charity from '../../charity.json'
+import React from "react";
+import { Doughnut } from "react-chartjs-2";
+import charity from "../../charity.json";
 
 // function getDonatedItems(name) {
 //     let donatedItems = 0
@@ -16,21 +16,18 @@ import charity from '../../charity.json'
 //     return donatedItems
 // }
 
-
-
-
 function TicketPieChart() {
-    function getTotalTicketOf(name) {
-        let totalTickets = 0
-        charity.map((ticket)=>{
-            if (ticket.ticketType === name) {
-                totalTickets+=1
-            }
-        })
-        return totalTickets
-    }
-    const totalReq = getTotalTicketOf("receive")
-    const totalDonate = getTotalTicketOf("donate")
+  function getTotalTicketOf(name) {
+    let totalTickets = 0;
+    charity.map((ticket) => {
+      if (ticket.ticketType === name) {
+        totalTickets += 1;
+      }
+    });
+    return totalTickets;
+  }
+  const totalReq = getTotalTicketOf("receive");
+  const totalDonate = getTotalTicketOf("donate");
   const data = {
     labels: ["Total Receive Tikets", "Total Donate Tickets"],
     datasets: [
@@ -60,7 +57,7 @@ function TicketPieChart() {
   return (
     <>
       <div className="header">
-        <h1 className="title">Percentages of each item donated</h1>
+        <h1 className="title">Donations vs. Requests</h1>
         <div className="links"></div>
       </div>
       <Doughnut data={data} />

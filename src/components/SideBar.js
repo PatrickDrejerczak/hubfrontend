@@ -19,6 +19,7 @@ import DoughnutChartReceiver from "../components/DoughnutChartReceiver";
 import DonePieChart from "../components/charts/totaldonevspending";
 import TicketPieChart from "../components/charts/totalrequestvsdonate";
 import TinaTestBarChart from "./TinaTestBarChart";
+import MostRequestIteam from "./MostRequestIteam";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -83,11 +84,11 @@ const SideBar = () => {
               </Col>
               <Col span={8}>
                 <Card
-                  title="Most Requested Item of the Day"
+                  title="Most requested item today"
                   bordered={false}
                   className="infoCard"
                 >
-                  Rice (384 requests)
+                  <MostRequestIteam />
                 </Card>
               </Col>
             </Row>
