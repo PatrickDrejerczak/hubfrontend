@@ -18,7 +18,8 @@ import "./SideBar.css";
 import BarChart from "../components/BarChart";
 import TotalCompleteAndPending from "../components/PieCharts/TotalCompleteAndPending";
 import TinaTestBarChart from "./TinaTestBarChart";
-import ProgressiveTotalCompleteAndPending from "./BarChart/ProgressiveTotalCompleteTickets";
+import ProgressiveTotalCompleteAndPending from "./LineChart/ProgressiveTotalCompleteTickets";
+import ProgressiveItemProvided from "./LineChart/ProgressiveItemProvided"
 import MostRequestIteam from "./MostRequestIteam";
 
 import TodayRequest from "./TodayRequest";

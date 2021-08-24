@@ -8,7 +8,9 @@ import { DesktopOutlined, PieChartOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 import "./SideBar.css";
-import ProgressiveTotalCompleteAndPending from "./BarChart/ProgressiveTotalCompleteTickets";
+import ProgressiveTotalCompleteAndPending from "./LineChart/ProgressiveTotalCompleteTickets";
+import ProgressiveItemProvided from "./LineChart/ProgressiveItemProvided";
+
 import MostRequestIteam from "./MostRequestIteam";
 
 import TodayRequest from "./TodayRequest";
@@ -29,7 +31,7 @@ const SideBarNew = () => {
         onCollapse={() => setCollapsed(!collapsed)}
       >
         <div className="logo" />
-        <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
+        <Menu theme="dark" defaultSelectedKeys={["2"]} mode="inline">
           <Menu.Item key="1" icon={<PieChartOutlined />}>
             <Link to="/">Overview</Link>
           </Menu.Item>
@@ -44,59 +46,21 @@ const SideBarNew = () => {
           style={{ padding: 0, backgroundColor: "#edf0f5" }}
         />
         <Content style={{ margin: "0 16px" }}>
-          <div className="site-card-wrapper">
-            <Row gutter={16}>
-              <Col span={8}>
-                <Card
-                  title="Today´s Requests"
-                  bordered={false}
-                  className="infoCard"
-                >
-                  <TodayRequest />
-                  <Statistic
-                    title="Increase of"
-                    value={11.28}
-                    precision={2}
-                    valueStyle={{ color: "#3f8600" }}
-                    prefix={<ArrowUpOutlined />}
-                    suffix="%"
-                  />
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card
-                  title="Today´s Donations"
-                  bordered={false}
-                  className="infoCard"
-                >
-                  <DailyDonate />
-                  <Statistic
-                    title="Decrease of"
-                    value={9.3}
-                    precision={2}
-                    valueStyle={{ color: "#cf1322" }}
-                    prefix={<ArrowDownOutlined />}
-                    suffix="%"
-                  />
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card
-                  title="Most requested item today"
-                  bordered={false}
-                  className="infoCard"
-                >
-                  <MostRequestIteam />
-                </Card>
-              </Col>
-            </Row>
-          </div>
-          <br />
+         
           <div className="site-card-wrapper">
             <Row gutter={16}>
               <Col span={24}>
                 <Card>
                   <ProgressiveTotalCompleteAndPending />
+                </Card>
+              </Col>
+            </Row>
+          </div>
+          <div className="site-card-wrapper">
+            <Row gutter={16}>
+              <Col span={24}>
+                <Card>
+                  <ProgressiveItemProvided />
                 </Card>
               </Col>
             </Row>
