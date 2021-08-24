@@ -16,7 +16,7 @@ import BarChart from "../components/BarChart";
 import DoughnutChartDonate from "../components/DonutChartDonated";
 import DoughnutChartReceiver from "../components/DoughnutChartReceiver";
 import DonePieChart from "../components/charts/totaldonevspending";
-import TicketPieChart from "../components/charts/totalrequestvsdonate";
+import TicketPieChart from "../components/PieCharts/TotalCompleteAndPending";
 import TinaTestBarChart from "./TinaTestBarChart";
 import MostRequestIteam from "./MostRequestIteam";
 
