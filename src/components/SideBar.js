@@ -11,6 +11,8 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 
+import "./SideBar.css";
+
 import BarChart from "../components/BarChart";
 import DoughnutChartDonate from "../components/DonutChartDonated";
 import DoughnutChartReceiver from "../components/DoughnutChartReceiver";
