@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import ticketActions from "../redux/actions/ticket.action";
 import { useDispatch, useSelector } from "react-redux";
+import { Progress } from "antd";
 const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
 const MostRequestIteam = () => {
@@ -116,11 +117,14 @@ const MostRequestIteam = () => {
       <div className="header">
 
         <h1 className="title">
-          {MostWanna} - {MostRequestItem} unit - {percent}% of the total
-          request.
+          {MostWanna} - {MostRequestItem} unit request.
         </h1>
 
       </div>
+      <div>
+        <Progress percent={percent} size="small" /> of total request
+      </div>
+      ,
     </div>
   );
 };
