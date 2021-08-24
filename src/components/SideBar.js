@@ -10,7 +10,7 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 
-import "./SideBar.css"
+import "./SideBar.css";
 
 import BarChart from "../components/BarChart";
 import TicketPieChart from "../components/PieCharts/TotalCompleteAndPending";
