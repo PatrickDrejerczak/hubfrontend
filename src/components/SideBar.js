@@ -15,7 +15,8 @@ import "./SideBar.css"
 import BarChart from "../components/BarChart";
 import TotalCompleteAndPending from "../components/PieCharts/TotalCompleteAndPending";
 import TinaTestBarChart from "./TinaTestBarChart";
-import ProgressiveTotalCompleteAndPending from "./BarChart/ProgressiveTotalCompleteTickets";
+import ProgressiveTotalCompleteAndPending from "./LineChart/ProgressiveTotalCompleteTickets";
+import ProgressiveItemProvided from "./LineChart/ProgressiveItemProvided"
 import MostRequestIteam from "./MostRequestIteam";
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -108,6 +109,15 @@ const SideBar = () => {
               <Col span={24}>
                 <Card>
                   <ProgressiveTotalCompleteAndPending />
+                </Card>
+              </Col>
+            </Row>
+          </div>
+          <div className="site-card-wrapper">
+            <Row gutter={16}>
+              <Col span={24}>
+                <Card>
+                  <ProgressiveItemProvided />
                 </Card>
               </Col>
             </Row>
