@@ -115,11 +115,12 @@ const MostRequestIteam = () => {
   return (
     <div>
       <div className="header">
-
-        <h1 className="title">
-          {MostWanna} - {MostRequestItem} unit request.
-        </h1>
-
+        <p className="title">
+          <span style={{ color: "red", fontSize: "20px", fontWeight: " bold" }}>
+            {MostWanna}{" "}
+          </span>
+          - {MostRequestItem} unit request.
+        </p>
       </div>
       <div>
         <Progress percent={percent} size="small" /> of total request
