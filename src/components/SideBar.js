@@ -13,11 +13,9 @@ import {
 import "./SideBar.css"
 
 import BarChart from "../components/BarChart";
-import DoughnutChartDonate from "../components/DonutChartDonated";
-import DoughnutChartReceiver from "../components/DoughnutChartReceiver";
-import DonePieChart from "../components/charts/totaldonevspending";
-import TicketPieChart from "../components/charts/totalrequestvsdonate";
+import TicketPieChart from "../components/PieCharts/TotalCompleteAndPending";
 import TinaTestBarChart from "./TinaTestBarChart";
+import ProgressiveTotalCompleteAndPending from "./BarChart/ProgressiveTotalCompleteTickets";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -100,6 +98,15 @@ const SideBar = () => {
               <Col span={24}>
                 <Card>
                   <TinaTestBarChart />
+                </Card>
+              </Col>
+            </Row>
+          </div>
+          <div className="site-card-wrapper">
+            <Row gutter={16}>
+              <Col span={24}>
+                <Card>
+                  <ProgressiveTotalCompleteAndPending />
                 </Card>
               </Col>
             </Row>
