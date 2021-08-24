@@ -19,7 +19,7 @@ import BarChart from "../components/BarChart";
 import TotalCompleteAndPending from "../components/PieCharts/TotalCompleteAndPending";
 import TinaTestBarChart from "./TinaTestBarChart";
 import ProgressiveTotalCompleteAndPending from "./LineChart/ProgressiveTotalCompleteTickets";
-import ProgressiveItemProvided from "./LineChart/ProgressiveItemProvided"
+import ProgressiveItemProvided from "./LineChart/ProgressiveItemProvided";
 import MostRequestIteam from "./MostRequestIteam";
 
 import TodayRequest from "./TodayRequest";
@@ -93,7 +93,7 @@ const SideBar = () => {
               </Col>
               <Col span={8}>
                 <Card
-                  title="Most requested item today"
+                  title="Today´s Most Requested Item"
                   bordered={false}
                   className="infoCard"
                 >
@@ -113,6 +113,7 @@ const SideBar = () => {
               <Col span={8}>
                 <Card>
                   <TotalCompleteAndPending />
+                  <br />
                 </Card>
               </Col>
             </Row>

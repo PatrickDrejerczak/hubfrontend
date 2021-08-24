@@ -103,7 +103,7 @@ const TinaTestBarChart = () => {
           totalDonateadultclothes,
           totalDonatemeat,
         ],
-        label: "Total Donate   ",
+        label: "Total Donated  ",
       },
       {
         backgroundColor: `rgba(210, 99, 132, 1)`,
@@ -119,7 +119,7 @@ const TinaTestBarChart = () => {
           totalReceiveadultclothes,
           totalReceivemeat,
         ],
-        label: "Total Receive",
+        label: "Total Requested",
       },
     ],
   };
@@ -139,9 +139,7 @@ const TinaTestBarChart = () => {
   return (
     <div>
       <div className="header">
-        <h1 className="title">
-          totalDonate donation and totalDonate receive tickets
-        </h1>
+        <h1 className="title">Goods requested vs. Goods donated</h1>
       </div>
       <Bar data={data} options={options} />
     </div>

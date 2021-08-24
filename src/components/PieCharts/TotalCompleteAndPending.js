@@ -1,35 +1,34 @@
-import React, { useEffect } from 'react';
-import { Doughnut } from 'react-chartjs-2';
-import ticketActions from '../../redux/actions/ticket.action';
-import { useDispatch, useSelector } from 'react-redux';
-
+import React, { useEffect } from "react";
+import { Doughnut } from "react-chartjs-2";
+import ticketActions from "../../redux/actions/ticket.action";
+import { useDispatch, useSelector } from "react-redux";
 
 function DonePieChart() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(ticketActions.getTickets());
   }, [dispatch]);
 
-  const state = useSelector(state => state)
-  const tickets = state.ticketReducer.tickets
+  const state = useSelector((state) => state);
+  const tickets = state.ticketReducer.tickets;
 
   function getTotalTicketOf(name) {
-    let totalTickets = 0
+    let totalTickets = 0;
     tickets.map((ticket) => {
       if (ticket.status === name) {
-        totalTickets += 1
+        totalTickets += 1;
       }
-    })
-    return totalTickets
+    });
+    return totalTickets;
   }
-  const totalReq = getTotalTicketOf("pending")
-  const totalDonate = getTotalTicketOf("complete")
+  const totalReq = getTotalTicketOf("pending");
+  const totalDonate = getTotalTicketOf("complete");
   const data = {
     labels: ["Total Pending Tickets", "Total Complete Tickets"],
     datasets: [
       {
-        label: "# of Votes",
+        label: "# of Tickets",
         data: [totalReq, totalDonate],
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
@@ -54,7 +53,7 @@ function DonePieChart() {
   return (
     <>
       <div className="header">
-        <h1 className="title">Percentages of pending and complete tickets</h1>
+        <h1 className="title">Pending vs. Complete Tickets</h1>
         <div className="links"></div>
       </div>
       <Doughnut data={data} />

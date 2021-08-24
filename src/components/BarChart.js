@@ -52,7 +52,7 @@ const VerticalBar = () => {
           totalReqOneWeek,
           totalReqLatest,
         ],
-        label: "Total Request",
+        label: "Total Requests",
       },
       {
         backgroundColor: `rgba(255, 99, 132, 1)`,
@@ -62,7 +62,7 @@ const VerticalBar = () => {
           totalDonateOneWeek,
           totalDonateLatest,
         ],
-        label: "Total Donation",
+        label: "Total Donations",
       },
     ],
   };
@@ -82,7 +82,7 @@ const VerticalBar = () => {
   return (
     <div>
       <div className="header">
-        <h1 className="title">Total donation and total receive tickets</h1>
+        <h1 className="title">Weekly Ticket Trend</h1>
       </div>
       <Bar data={data} options={options} />
     </div>

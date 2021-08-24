@@ -119,11 +119,11 @@ const MostRequestIteam = () => {
           <span style={{ color: "red", fontSize: "20px", fontWeight: " bold" }}>
             {MostWanna}{" "}
           </span>
-          - {MostRequestItem} unit request.
+          - {MostRequestItem} units requested.
         </p>
       </div>
       <div>
-        <Progress percent={percent} size="small" /> of total request
+        <Progress percent={percent} size="small" /> of total requests
       </div>
       ,
     </div>
