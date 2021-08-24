@@ -1,4 +1,5 @@
 import React from "react";
+import "./SideBar.css";
 import { useState } from "react";
 import "antd/dist/antd.css";
 import { Layout, Menu, Breadcrumb, Row, Col, Card } from "antd";
@@ -61,18 +62,30 @@ const SideBar = () => {
           <div className="site-card-wrapper">
             <Row gutter={16}>
               <Col span={8}>
-                <Card title="Card title" bordered={false}>
-                  Card content
+                <Card
+                  title="Today´s Requests"
+                  bordered={false}
+                  className="infoCard"
+                >
+                  623
                 </Card>
               </Col>
               <Col span={8}>
-                <Card title="Card title" bordered={false}>
-                  Card content
+                <Card
+                  title="Today´s Donations"
+                  bordered={false}
+                  className="infoCard"
+                >
+                  52
                 </Card>
               </Col>
               <Col span={8}>
-                <Card title="Card title" bordered={false}>
-                  Card content
+                <Card
+                  title="Most Requested Item of the Day"
+                  bordered={false}
+                  className="infoCard"
+                >
+                  Rice (384 requests)
                 </Card>
               </Col>
             </Row>
