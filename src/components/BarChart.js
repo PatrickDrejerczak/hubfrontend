@@ -6,11 +6,6 @@ const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
 
 
-
-
-
-
-
 const VerticalBar = () => {
     const dispatch = useDispatch()
 
@@ -23,28 +18,18 @@ const VerticalBar = () => {
     const loading = state.ticketReducer.loading
 
     const data = {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['18/6', '19/6', '20/6', '21/6', '22/6', '23/6'],
+
         datasets: [
             {
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(220, 99, 135, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
-                ],
-                borderWidth: 1,
+                backgroundColor: `rgba(220, 99, 135, 0.2)`,
+                data: [18, 22, 19, 27, 15, 30, 20],
+                label: "Total Request",
+            },
+            {
+                backgroundColor: `rgba(255, 99, 132, 1)`,
+                data: [11, 15, 12, 29, 20, 25, 13],
+                label: "Total Donation",
             },
         ],
     };
