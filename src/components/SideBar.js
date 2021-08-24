@@ -14,10 +14,10 @@ import {
 import "./SideBar.css";
 
 import BarChart from "../components/BarChart";
-import DoughnutChartDonate from "../components/DonutChartDonated";
-import DoughnutChartReceiver from "../components/DoughnutChartReceiver";
-import DonePieChart from "../components/charts/totaldonevspending";
-import TicketPieChart from "../components/charts/totalrequestvsdonate";
+// import DoughnutChartDonate from "../components/DonutChartDonated";
+// import DoughnutChartReceiver from "../components/DoughnutChartReceiver";
+// import DonePieChart from "../components/charts/totaldonevspending";
+import TotalCompleteAndPending from "../components/PieCharts/TotalCompleteAndPending";
 import TinaTestBarChart from "./TinaTestBarChart";
 import MostRequestIteam from "./MostRequestIteam";
 
@@ -103,7 +103,7 @@ const SideBar = () => {
               </Col>
               <Col span={8}>
                 <Card>
-                  <TicketPieChart />
+                  <TotalCompleteAndPending />
                 </Card>
               </Col>
             </Row>
