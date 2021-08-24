@@ -1,16 +1,18 @@
 import React from "react";
-import BarChart from "../../components/BarChart";
-import DonePieChart from "../../components/charts/totaldonevspending";
-import TicketPieChart from "../../components/charts/totalrequestvsdonate";
+// import BarChart from "../../components/BarChart";
+// import DonePieChart from "../../components/charts/totaldonevspending";
+// import TicketPieChart from "../../components/charts/totalrequestvsdonate";
+import SideBar from "../../components/BarChart";
 
 const HomePage = () => {
-    return (
-        <>
-            <BarChart />
-            <TicketPieChart />
-            <DonePieChart/>
-        </>
-    );
+  return (
+    <>
+      <SideBar />
+      {/* <BarChart />
+      <TicketPieChart />
+      <DonePieChart /> */}
+    </>
+  );
 };
 
 export default HomePage;
