@@ -13,12 +13,11 @@ import {
 import "./SideBar.css"
 
 import BarChart from "../components/BarChart";
-import TicketPieChart from "../components/PieCharts/TotalRequestAndDonate";
-import DonePieChart from "../components/PieCharts/TotalCompleteAndPending";
-
+import TotalCompleteAndPending from "../components/PieCharts/TotalCompleteAndPending";
 import TinaTestBarChart from "./TinaTestBarChart";
 import ProgressiveTotalCompleteAndPending from "./BarChart/ProgressiveTotalCompleteTickets";
 import MostRequestIteam from "./MostRequestIteam";
+import DailyDonate from "./TotalDonateToday";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -69,8 +68,8 @@ const SideBar = () => {
                 </Card>
               </Col>
               <Col span={8}>
-                <Card title="Card title" bordered={false}>
-                  Card content
+                <Card title="Today donation" bordered={false}>
+                  <DailyDonate />
                 </Card>
               </Col>
               <Col span={8}>
@@ -90,7 +89,7 @@ const SideBar = () => {
               </Col>
               <Col span={8}>
                 <Card>
-                  <DonePieChart />
+                  <TotalCompleteAndPending />
                 </Card>
               </Col>
             </Row>
