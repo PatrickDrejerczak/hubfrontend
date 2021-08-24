@@ -1,5 +1,6 @@
 import React from "react";
-import { useState } from "react-dom";
+import { useState } from "react";
+import "antd/dist/antd.css";
 import { Layout, Menu, Breadcrumb } from "antd";
 import {
   DesktopOutlined,
@@ -9,17 +10,23 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 
+import BarChart from "../components/BarChart"
+import DoughnutChartDonate from "../components/DonutChartDonated";
+import DoughnutChartReceiver from "../components/DoughnutChartReceiver";
+import DonePieChart from "../components/charts/totaldonevspending";
+import TicketPieChart from "../components/charts/totalrequestvsdonate";
+
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
 const SideBar = () => {
-  const [collapsed, setCollapsed] = useState();
+  const [collapsed, setCollapsed] = useState(false);
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sider
         collapsible
         collapsed={collapsed}
-        onCollapse={setCollapsed(!collapsed)}
+        onCollapse={() => setCollapsed(!collapsed)}
       >
         <div className="logo" />
         <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
@@ -52,14 +59,16 @@ const SideBar = () => {
           </Breadcrumb>
           <div
             className="site-layout-background"
-            style={{ padding: 24, minHeight: 360 }}
+            style={{ padding: 10, minHeight: 100 }}
           >
             Bill is a cat.
           </div>
+          <BarChart />
+          <TicketPieChart />
+          <DonePieChart />
+          <DoughnutChartDonate />
+          <DoughnutChartReceiver />
         </Content>
-        <Footer style={{ textAlign: "center" }}>
-          Ant Design ©2018 Created by Ant UED
-        </Footer>
       </Layout>
     </Layout>
   );

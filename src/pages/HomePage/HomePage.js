@@ -7,6 +7,8 @@ import DoughnutChartDonate from "../../components/DonutChartDonated";
 import DoughnutChartReceiver from "../../components/DoughnutChartReceiver";
 import TinaTestBarChart from "../../components/TinaTestBarChart";
 
+import SideBar from "../../components/SideBar";
+
 const HomePage = () => {
   return (
     <div style={{ width: "50vw" }}>
