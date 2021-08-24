@@ -18,7 +18,11 @@ import TotalCompleteAndPending from "../components/PieCharts/TotalCompleteAndPen
 import TinaTestBarChart from "./TinaTestBarChart";
 import ProgressiveTotalCompleteAndPending from "./BarChart/ProgressiveTotalCompleteTickets";
 import MostRequestIteam from "./MostRequestIteam";
+
 import TodayRequest from "./TodayRequest";
+
+import DailyDonate from "./TotalDonateToday";
+
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -69,12 +73,16 @@ const SideBar = () => {
                 </Card>
               </Col>
               <Col span={8}>
+
                 <Card
                   title="Today´s Donations"
                   bordered={false}
                   className="infoCard"
                 >
-                  52
+                 <DailyDonate />
+             
+                 
+
                 </Card>
               </Col>
               <Col span={8}>

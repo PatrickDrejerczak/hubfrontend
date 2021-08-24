@@ -16,7 +16,6 @@ const MostRequestIteam = () => {
   const loading = state.ticketReducer.loading;
   function gettotalTicketOf(name, kindOfItems) {
     let totalDonateTickets = 0;
-    const itemsLength = tickets.items;
     tickets.map((ticket) => {
       if (ticket.ticketType === name && ticket.weeksAgo === 0) {
         let items = ticket.items;
@@ -74,12 +73,53 @@ const MostRequestIteam = () => {
     totalDonateadultclothes,
     totalDonatemeat
   );
+  const total =
+    totalDonateRice +
+    totalDonateEgg +
+    totalDonatenoodles +
+    totalDonateveggies +
+    totalDonatechildrenclothes +
+    totalDonatemask +
+    totalDonatefish +
+    totalDonateprotectivegear +
+    totalDonateadultclothes +
+    totalDonatemeat;
+  const percent = Math.round((MostRequestItem / total) * 100);
+  console.log(percent);
   console.log("max", MostRequestItem);
+  let MostWanna = "";
+  if (totalDonateRice === MostRequestItem) {
+    MostWanna = "Rice";
+  } else if (totalDonateEgg === MostRequestItem) {
+    MostWanna = "Egg";
+  } else if (totalDonatenoodles === MostRequestItem) {
+    MostWanna = "Noodles";
+  } else if (totalDonateveggies === MostRequestItem) {
+    MostWanna = "Veg";
+  } else if (totalDonatechildrenclothes === MostRequestItem) {
+    MostWanna = "Children Clothes";
+  } else if (totalDonatemask === MostRequestItem) {
+    MostWanna = "Mask";
+  } else if (totalDonatefish === MostRequestItem) {
+    MostWanna = "Fish";
+  } else if (totalDonateprotectivegear === MostRequestItem) {
+    MostWanna = "Protect gear";
+  } else if (totalDonateadultclothes === MostRequestItem) {
+    MostWanna = "Adult Clothes";
+  } else if (totalDonatemeat === MostRequestItem) {
+    MostWanna = "Meat";
+  }
+  console.log(MostWanna);
 
   return (
     <div>
       <div className="header">
-        <h1 className="title">Meat ( {MostRequestItem} units ) </h1>
+
+        <h1 className="title">
+          {MostWanna} - {MostRequestItem} unit - {percent}% of the total
+          request.
+        </h1>
+
       </div>
     </div>
   );
