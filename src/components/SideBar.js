@@ -1,7 +1,9 @@
 import React from "react";
+import "./SideBar.css";
 import { useState } from "react";
 import "antd/dist/antd.css";
-import { Layout, Menu, Breadcrumb, Row, Col, Card } from "antd";
+import { Layout, Menu, Statistic, Row, Col, Card } from "antd";
+import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 import {
   DesktopOutlined,
   PieChartOutlined,
@@ -17,6 +19,9 @@ import TotalCompleteAndPending from "../components/PieCharts/TotalCompleteAndPen
 import TinaTestBarChart from "./TinaTestBarChart";
 import ProgressiveTotalCompleteAndPending from "./BarChart/ProgressiveTotalCompleteTickets";
 import MostRequestIteam from "./MostRequestIteam";
+
+import TodayRequest from "./TodayRequest";
+
 import DailyDonate from "./TotalDonateToday";
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -56,24 +61,48 @@ const SideBar = () => {
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }} />
         <Content style={{ margin: "0 16px" }}>
-          <Breadcrumb style={{ margin: "16px 0" }}>
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-          </Breadcrumb>
           <div className="site-card-wrapper">
             <Row gutter={16}>
               <Col span={8}>
-                <Card title="Card title" bordered={false}>
-                  Card content
+                <Card
+                  title="Today´s Requests"
+                  bordered={false}
+                  className="infoCard"
+                >
+                  <TodayRequest />
+                  <Statistic
+                    title="Increase of"
+                    value={11.28}
+                    precision={2}
+                    valueStyle={{ color: "#3f8600" }}
+                    prefix={<ArrowUpOutlined />}
+                    suffix="%"
+                  />
                 </Card>
               </Col>
               <Col span={8}>
-                <Card title="Today donation" bordered={false}>
+                <Card
+                  title="Today´s Donations"
+                  bordered={false}
+                  className="infoCard"
+                >
                   <DailyDonate />
+                  <Statistic
+                    title="Decrease of"
+                    value={9.3}
+                    precision={2}
+                    valueStyle={{ color: "#cf1322" }}
+                    prefix={<ArrowDownOutlined />}
+                    suffix="%"
+                  />
                 </Card>
               </Col>
               <Col span={8}>
-                <Card title="Most request item today" bordered={false}>
+                <Card
+                  title="Most requested item today"
+                  bordered={false}
+                  className="infoCard"
+                >
                   <MostRequestIteam />
                 </Card>
               </Col>
