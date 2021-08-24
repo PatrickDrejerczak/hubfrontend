@@ -13,7 +13,7 @@ import {
 import "./SideBar.css"
 
 import BarChart from "../components/BarChart";
-import TicketPieChart from "../components/PieCharts/TotalCompleteAndPending";
+import TotalCompleteAndPending from "../components/PieCharts/TotalCompleteAndPending";
 import TinaTestBarChart from "./TinaTestBarChart";
 import ProgressiveTotalCompleteAndPending from "./BarChart/ProgressiveTotalCompleteTickets";
 import MostRequestIteam from "./MostRequestIteam";
@@ -88,7 +88,7 @@ const SideBar = () => {
               </Col>
               <Col span={8}>
                 <Card>
-                  <TicketPieChart />
+                  <TotalCompleteAndPending />
                 </Card>
               </Col>
             </Row>
