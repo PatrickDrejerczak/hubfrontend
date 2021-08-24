@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Line } from 'react-chartjs-2';
+import { Bar  } from 'react-chartjs-2';
 import ticketActions from '../../redux/actions/ticket.action';
 import { useDispatch, useSelector } from 'react-redux';
 // const BACKEND_API = process.env.REACT_APP_BACKEND_API;
@@ -151,23 +151,32 @@ const ProgressiveTotalCompleteAndPending = () => {
     };
 
     const options = {
-        scales: {
-            yAxes: [
-                {
-                    ticks: {
-                        beginAtZero: true,
-                    },
-                },
-            ],
+        indexAxis: 'y',
+        // Elements options apply to all of the options unless overridden in a dataset
+        // In this case, we are setting the border of each horizontal bar to be 2px wide
+        elements: {
+          bar: {
+            borderWidth: 2,
+          },
         },
-    };
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'right',
+          },
+          title: {
+            display: true,
+            text: 'Chart.js Horizontal Bar Chart',
+          },
+        },
+      };
 
     return (
         <div>
             <div className='header'>
                 <h1 className='title'>Total delivered items progressively</h1>
             </div>
-            <Line data={data} options={options} />
+            <Bar  data={data} options={options} />
         </div>
     )
 }
