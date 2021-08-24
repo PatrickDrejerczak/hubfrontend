@@ -4,30 +4,29 @@ import ticketActions from '../../redux/actions/ticket.action';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-function TicketPieChart() {
+function DonePieChart() {
   const dispatch = useDispatch()
 
-      useEffect(() => {
-          dispatch(ticketActions.getTickets());
-      }, [dispatch]);
-    
-      const state = useSelector(state => state)
-      const tickets = state.ticketReducer.tickets
+  useEffect(() => {
+      dispatch(ticketActions.getTickets());
+  }, [dispatch]);
 
-      
+  const state = useSelector(state => state)
+  const tickets = state.ticketReducer.tickets
+
     function getTotalTicketOf(name) {
         let totalTickets = 0
         tickets.map((ticket)=>{
-            if (ticket.ticketType === name) {
+            if (ticket.status === name) {
                 totalTickets+=1
             }
         })
         return totalTickets
     }
-    const totalReq = getTotalTicketOf("receive")
-    const totalDonate = getTotalTicketOf("donate")
+    const totalReq = getTotalTicketOf("pending")
+    const totalDonate = getTotalTicketOf("complete")
   const data = {
-    labels: ["Total Receive Tikets", "Total Donate Tickets"],
+    labels: ["Total Pending Tickets", "Total Complete Tickets"],
     datasets: [
       {
         label: "# of Votes",
@@ -55,7 +54,7 @@ function TicketPieChart() {
   return (
     <>
       <div className="header">
-        <h1 className="title">Percentages of each item donated</h1>
+        <h1 className="title">Percentages of pending and complete tickets</h1>
         <div className="links"></div>
       </div>
       <Doughnut data={data} />
@@ -63,4 +62,4 @@ function TicketPieChart() {
   );
 }
 
-export default TicketPieChart;
+export default DonePieChart;
