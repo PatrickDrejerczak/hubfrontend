@@ -13,7 +13,7 @@ const ticketReducer = (state = initialState, action) => {
         case types.GET_TICKETS_REQUEST:
             return { ...state, loading: true };
         case types.GET_TICKETS_SUCCESS:
-            return { ...state, TICKETS: payload, loading: false };
+            return { ...state, tickets: payload, loading: false };
         case types.GET_TICKETS_FAILURE:
             return { ...state, loading: false };
 
@@ -27,7 +27,7 @@ const ticketReducer = (state = initialState, action) => {
         case types.CREATE_TICKET_REQUEST:
             return { ...state, loading: true };
         case types.CREATE_TICKET_SUCCESS:
-            return { ...state, TICKETS: payload, loading: false };
+            return { ...state, tickets: payload, loading: false };
         case types.CREATE_TICKET_FAILURE:
             return { ...state, loading: false };
 

@@ -2,17 +2,15 @@ import { toast } from "react-toastify";
 import * as types from "../constants/ticket.constant";
 import api from "../../apiService";
 
-const getTickets = (pageNum, limit, isDone) => async (dispatch) => {
+const getTickets = () => async (dispatch) => {
     dispatch({ type: types.GET_TICKETS_REQUEST, payload: null });
     try {
-        let url = ``;
-        if (isDone) {
-            url = url + `?isDone=${isDone}`;
-        }
+        let url = `${process.env.REACT_APP_BACKEND_API}ticket`;
         const data = await api.get(url);
+        console.log("this data", data)
         dispatch({
             type: types.GET_TICKETS_SUCCESS,
-            payload: data.data.requests,
+            payload: data.data.ticket,
         });
     } catch (error) {
         toast.error(error.message);
@@ -41,7 +39,7 @@ const createTicket = (ticket) => async (dispatch) => {
     try {
         let url = ``;
 
-        const data = await api.create(url, request);
+        const data = await api.create(url, ticket);
         console.log("hahaha", data);
         dispatch({ type: types.CREATE_TICKET_SUCCESS, payload: data.data.tickets });
     } catch (error) {
