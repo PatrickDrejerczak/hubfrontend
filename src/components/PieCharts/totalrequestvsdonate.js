@@ -1,28 +1,23 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
 import { Doughnut } from 'react-chartjs-2';
-import charity from '../../charity.json'
-
-// function getDonatedItems(name) {
-//     let donatedItems = 0
-//     charity.map((ticket)=>{
-//         if (ticket.ticketType === "donated") {
-//             ticket.items.map((item) => {
-//                 if (item.itemName === name) {
-//                     donatedItems += item.quantity
-//                 }
-//             })
-//         }
-//     })
-//     return donatedItems
-// }
-
-
+import ticketActions from '../../redux/actions/ticket.action';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 function TicketPieChart() {
+  const dispatch = useDispatch()
+
+      useEffect(() => {
+          dispatch(ticketActions.getTickets());
+      }, [dispatch]);
+    
+      const state = useSelector(state => state)
+      const tickets = state.ticketReducer.tickets
+
+      
     function getTotalTicketOf(name) {
         let totalTickets = 0
-        charity.map((ticket)=>{
+        tickets.map((ticket)=>{
             if (ticket.ticketType === name) {
                 totalTickets+=1
             }
