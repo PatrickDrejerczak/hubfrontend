@@ -49,6 +49,41 @@ const ProgressiveTotalCompleteAndPending = () => {
     const totalNoodlesOneWeek = getTotalQuantityOf("noodles",1) +totalNoodlesTwoWeek
     const totalNoodlesLatest = getTotalQuantityOf("noodles",0) +totalNoodlesOneWeek
     
+    const totalVeggiesThreeWeek = getTotalQuantityOf("veggies",3)
+    const totalVeggiesTwoWeek = getTotalQuantityOf("veggies",2) +totalVeggiesThreeWeek
+    const totalVeggiesOneWeek = getTotalQuantityOf("veggies",1) +totalVeggiesTwoWeek
+    const totalVeggiesLatest = getTotalQuantityOf("veggies",0) +totalVeggiesOneWeek
+
+    const totalCClothesThreeWeek = getTotalQuantityOf("children clothes",3)
+    const totalCClothesTwoWeek = getTotalQuantityOf("children clothes",2) +totalCClothesThreeWeek
+    const totalCClothesOneWeek = getTotalQuantityOf("children clothes",1) +totalCClothesTwoWeek
+    const totalCClothesLatest = getTotalQuantityOf("children clothes",0) +totalCClothesOneWeek
+
+    const totalMaskThreeWeek = getTotalQuantityOf("mask",3)
+    const totalMaskTwoWeek = getTotalQuantityOf("mask",2) +totalMaskThreeWeek
+    const totalMaskOneWeek = getTotalQuantityOf("mask",1) +totalMaskTwoWeek
+    const totalMaskLatest = getTotalQuantityOf("mask",0) +totalMaskOneWeek
+
+    const totalFishThreeWeek = getTotalQuantityOf("fish",3)
+    const totalFishTwoWeek = getTotalQuantityOf("fish",2) +totalFishThreeWeek
+    const totalFishOneWeek = getTotalQuantityOf("fish",1) +totalFishTwoWeek
+    const totalFishLatest = getTotalQuantityOf("fish",0) +totalFishOneWeek
+
+    const totalPGearThreeWeek = getTotalQuantityOf("protective gear",3)
+    const totalPGearTwoWeek = getTotalQuantityOf("protective gear",2) +totalPGearThreeWeek
+    const totalPGearOneWeek = getTotalQuantityOf("protective gear",1) +totalPGearTwoWeek
+    const totalPGearLatest = getTotalQuantityOf("protective gear",0) +totalPGearOneWeek
+
+    const totalAClothesThreeWeek = getTotalQuantityOf("adult clothes",3)
+    const totalAClothesTwoWeek = getTotalQuantityOf("adult clothes",2) +totalAClothesThreeWeek
+    const totalAClothesOneWeek = getTotalQuantityOf("adult clothes",1) +totalAClothesTwoWeek
+    const totalAClothesLatest = getTotalQuantityOf("adult clothes",0) +totalAClothesOneWeek
+
+    const totalMeatThreeWeek = getTotalQuantityOf("meat",3)
+    const totalMeatTwoWeek = getTotalQuantityOf("meat",2) +totalMeatThreeWeek
+    const totalMeatOneWeek = getTotalQuantityOf("meat",1) +totalMeatTwoWeek
+    const totalMeatLatest = getTotalQuantityOf("meat",0) +totalMeatOneWeek
+
     const data = {
         labels: ["Three week ago", "Two week ago","One week ago", "Latest"],
 
@@ -70,6 +105,47 @@ const ProgressiveTotalCompleteAndPending = () => {
                 borderColor: 'rgba(255, 99, 132, 0.2)',
                 data: [totalNoodlesThreeWeek,totalNoodlesTwoWeek,totalNoodlesOneWeek,totalNoodlesLatest],
                 label: "Total Noodles Provided",
+            },
+            {
+                backgroundColor: `rgba(255, 206, 86, 1)`,
+                borderColor: 'rgba(255, 206, 86, 0.2)',
+                data: [totalVeggiesThreeWeek,totalVeggiesTwoWeek,totalVeggiesOneWeek,totalVeggiesLatest],
+                label: "Total Veggies Provided",
+            },
+            {
+                backgroundColor: `rgba(75, 192, 192, 1)`,
+                borderColor: 'rgba(75, 192, 192, 0.2)',
+                data: [totalCClothesThreeWeek,totalCClothesTwoWeek,totalCClothesOneWeek,totalCClothesLatest],
+                label: "Total Children Clothes Provided"            },
+            {
+                backgroundColor: `rgba(153, 102, 255, 1)`,
+                borderColor: 'rgba(153, 102, 255, 0.2)',
+                data: [totalMaskThreeWeek,totalMaskTwoWeek,totalMaskOneWeek,totalMaskLatest],
+                label: "Total Mask Provided",
+            },
+            {
+                backgroundColor: `rgba(255, 159, 64, 1)`,
+                borderColor: 'rgba(255, 159, 64, 0.2)',
+                data: [totalFishThreeWeek,totalFishTwoWeek,totalFishOneWeek,totalFishLatest],
+                label: "Total Fish Provided",
+            },
+            {
+                backgroundColor: `rgba(100, 192, 192, 1)`,
+                borderColor: 'rgba(100, 192, 192, 0.2)',
+                data: [totalPGearThreeWeek,totalPGearTwoWeek,totalPGearOneWeek,totalPGearLatest],
+                label: "Total Protective Gear Provided",
+            },
+            {
+                backgroundColor: `rgba(1, 102, 255, 1)`,
+                borderColor: 'rgba(1, 102, 255, 0.2)',
+                data: [totalAClothesThreeWeek,totalAClothesTwoWeek,totalAClothesOneWeek,totalAClothesLatest],
+                label: "Total Adult Clothes Provided",
+            },
+            {
+                backgroundColor: `rgba(321, 159, 64, 1)`,
+                borderColor: 'rgba(321, 159, 64, 0.2)',
+                data: [totalMeatThreeWeek,totalMeatTwoWeek,totalMeatOneWeek,totalMeatLatest],
+                label: "Total Meat Provided",
             }
         ],
     };
