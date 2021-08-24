@@ -48,12 +48,12 @@ const VerticalBar = () => {
 
         datasets: [
             {
-                backgroundColor: `rgba(220, 99, 135, 0.2)`,
+                backgroundColor: `rgba(255, 99, 132, 1)`,
                 data: [totalReqThreeWeek, totalReqTwoWeek, totalReqOneWeek, totalReqLatest],
                 label: "Total Request",
             },
             {
-                backgroundColor: `rgba(255, 99, 132, 1)`,
+                backgroundColor: `rgba(220, 99, 135, 0.2)`,
                 data: [totalDonateThreeWeek,totalDonateTwoWeek,totalDonateOneWeek,totalDonateLatest],
                 label: "Total Donation",
             },
