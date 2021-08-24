@@ -44,11 +44,11 @@ const ProgressiveTotalCompleteAndPending = () => {
     const totalCompleteOneWeek = getTotalTicketOf("complete",1) +totalCompleteTwoWeek
     const totalCompleteLatest = getTotalTicketOf("complete",0) +totalCompleteOneWeek
     
-    const totalTicketsThreeWeek = getTotalTicketAssigned("notStarted",3) 
-    const totalTicketsTwoWeek = getTotalTicketAssigned("notStarted",2) + totalTicketsThreeWeek 
-    const totalTicketsOneWeek = getTotalTicketAssigned("notStarted",1) + totalTicketsTwoWeek 
-    const totalTicketsLatest = getTotalTicketAssigned("notStarted",0) + totalTicketsOneWeek 
-    console.log(totalTicketsThreeWeek)
+    // const totalTicketsThreeWeek = getTotalTicketAssigned("notStarted",3) 
+    // const totalTicketsTwoWeek = getTotalTicketAssigned("notStarted",2) + totalTicketsThreeWeek 
+    // const totalTicketsOneWeek = getTotalTicketAssigned("notStarted",1) + totalTicketsTwoWeek 
+    // const totalTicketsLatest = getTotalTicketAssigned("notStarted",0) + totalTicketsOneWeek 
+    // console.log(totalTicketsThreeWeek)
 
     // const totalTicketsThreeWeek = getTotalTicketOf("pending",3) 
     // const totalTicketsTwoWeek = getTotalTicketOf("pending",2) + totalTicketsThreeWeek 
@@ -64,11 +64,11 @@ const ProgressiveTotalCompleteAndPending = () => {
                 data: [totalCompleteThreeWeek, totalCompleteTwoWeek, totalCompleteOneWeek, totalCompleteLatest],
                 label: "Total Completed Tickets",
             },
-            {
-                backgroundColor: `rgba(220, 99, 135, 0.2)`,
-                data: [totalTicketsThreeWeek,totalTicketsTwoWeek,totalTicketsOneWeek,totalTicketsLatest],
-                label: "Total Assigned Tickets",
-            },
+            // {
+            //     backgroundColor: `rgba(220, 99, 135, 0.2)`,
+            //     data: [totalTicketsThreeWeek,totalTicketsTwoWeek,totalTicketsOneWeek,totalTicketsLatest],
+            //     label: "Total Assigned Tickets",
+            // },
         ],
     };
 
@@ -87,7 +87,7 @@ const ProgressiveTotalCompleteAndPending = () => {
     return (
         <div>
             <div className='header'>
-                <h1 className='title'>Total receiving and donating tickets</h1>
+                <h1 className='title'>Total completed tickets progressively</h1>
             </div>
             <Bar data={data} options={options} />
         </div>
