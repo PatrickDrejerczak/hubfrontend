@@ -1,5 +1,6 @@
 import React from "react";
-import { useState } from "react-dom";
+import { useState } from "react";
+import "antd/dist/antd.css";
 import { Layout, Menu, Breadcrumb } from "antd";
 import {
   DesktopOutlined,
@@ -13,13 +14,13 @@ const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
 const SideBar = () => {
-  const [collapsed, setCollapsed] = useState();
+  const [collapsed, setCollapsed] = useState(false);
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sider
         collapsible
         collapsed={collapsed}
-        onCollapse={setCollapsed(!collapsed)}
+        onCollapse={() => setCollapsed(!collapsed)}
       >
         <div className="logo" />
         <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
@@ -57,9 +58,6 @@ const SideBar = () => {
             Bill is a cat.
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
-          Ant Design ©2018 Created by Ant UED
-        </Footer>
       </Layout>
     </Layout>
   );
