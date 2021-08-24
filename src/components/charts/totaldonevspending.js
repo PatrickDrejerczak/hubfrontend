@@ -19,20 +19,20 @@ import charity from '../../charity.json'
 
 
 
-function TicketPieChart() {
+function DonePieChart() {
     function getTotalTicketOf(name) {
         let totalTickets = 0
         charity.map((ticket)=>{
-            if (ticket.ticketType === name) {
+            if (ticket.status === name) {
                 totalTickets+=1
             }
         })
         return totalTickets
     }
-    const totalReq = getTotalTicketOf("receive")
-    const totalDonate = getTotalTicketOf("donate")
+    const totalReq = getTotalTicketOf("pending")
+    const totalDonate = getTotalTicketOf("complete")
   const data = {
-    labels: ["Total Receive Tikets", "Total Donate Tickets"],
+    labels: ["Total Pending Tikets", "Total Complete Tickets"],
     datasets: [
       {
         label: "# of Votes",
@@ -68,4 +68,4 @@ function TicketPieChart() {
   );
 }
 
-export default TicketPieChart;
+export default DonePieChart;
