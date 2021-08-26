@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
+import donutchartReducer from "./donutchart.reducer";
 import ticketReducer from "./ticket.reducer";
 
 export default combineReducers({
-    ticketReducer: ticketReducer
+  donutchartReducer: donutchartReducer,
+  ticketReducer: ticketReducer,
 });
