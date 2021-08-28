@@ -3,6 +3,7 @@ import * as types from "../constants/barchart.constanst";
 const initialState = {
   receive: [],
   send: [],
+  itemChart: {},
   loading: false,
 };
 
@@ -22,6 +23,13 @@ const barchartReducer = (state = initialState, action) => {
     case types.GET_SEND_SUCCESS:
       return { ...state, send: payload, loading: false };
     case types.GET_SEND_FAILURE:
+      return { ...state, loading: false };
+
+    case types.GET_ITEM_CHART_REQUEST:
+      return { ...state, loading: true };
+    case types.GET_ITEM_CHART_SUCCESS:
+      return { ...state, itemChart: payload, loading: false };
+    case types.GET_ITEM_CHART_FAILURE:
       return { ...state, loading: false };
 
     default:
