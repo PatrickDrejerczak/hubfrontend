@@ -49,12 +49,6 @@ function DoughnutChartDonate() {
     "adult clothes"
   );
   const totalDonatemeat = gettotalDonateTicketOf("donate", "meat");
-  console.log("rice", totalDonateRice);
-  console.log("egg", totalDonateEgg);
-  console.log("totalDonatenoodles", totalDonatenoodles);
-  console.log("totalDonateveggies", totalDonateveggies);
-  console.log("totalDonatechildrenclothes", totalDonatechildrenclothes);
-  console.log("totalDonatemask", totalDonatemask);
 
   const data = {
     labels: [

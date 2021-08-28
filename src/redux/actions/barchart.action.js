@@ -7,7 +7,7 @@ const getReceive = () => async (dispatch) => {
   try {
     let url = `${process.env.REACT_APP_BACKEND_API}charts/bar`;
     const data = await api.get(url);
-    console.log("this data", data);
+
     dispatch({
       type: types.GET_RECEIVE_SUCCESS,
       payload: data.data.receive,
@@ -23,7 +23,7 @@ const getSend = () => async (dispatch) => {
   try {
     let url = `${process.env.REACT_APP_BACKEND_API}charts/bar`;
     const data = await api.get(url);
-    console.log("this data", data);
+
     dispatch({
       type: types.GET_SEND_SUCCESS,
       payload: data.data.send,
@@ -50,5 +50,21 @@ const getItemChart = () => async (dispatch) => {
   }
 };
 
-const barchartActions = { getReceive, getSend, getItemChart };
+const getTodayPost = () => async (dispatch) => {
+  dispatch({ type: types.GET_TODAY_POST_REQUEST, payload: null });
+  try {
+    let url = `${process.env.REACT_APP_BACKEND_API}charts/todayPosts`;
+    const res = await api.get(url);
+
+    dispatch({
+      type: types.GET_TODAY_POST_SUCCESS,
+      payload: res.data,
+    });
+  } catch (error) {
+    toast.error(error.message);
+    dispatch({ type: types.GET_TODAY_POST_FAILURE, payload: error });
+  }
+};
+
+const barchartActions = { getReceive, getSend, getItemChart, getTodayPost };
 export default barchartActions;

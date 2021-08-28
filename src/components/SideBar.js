@@ -3,14 +3,12 @@ import "./SideBar.css";
 import { useState } from "react";
 import "antd/dist/antd.css";
 import { Layout, Menu, Statistic, Row, Col, Card } from "antd";
-import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
-  TeamOutlined,
-  UserOutlined,
+  ArrowUpOutlined,
+  ArrowDownOutlined,
+  MinusOutlined,
 } from "@ant-design/icons";
+import { DesktopOutlined, PieChartOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 import "./SideBar.css";
@@ -18,9 +16,9 @@ import "./SideBar.css";
 import BarChart from "../components/BarChart";
 import TotalCompleteAndPending from "../components/PieCharts/TotalCompleteAndPending";
 import TinaTestBarChart from "./TinaTestBarChart";
-import ProgressiveTotalCompleteAndPending from "./LineChart/ProgressiveTotalCompleteTickets";
-import ProgressiveItemProvided from "./LineChart/ProgressiveItemProvided";
+
 import MostRequestIteam from "./MostRequestIteam";
+import { useSelector } from "react-redux";
 
 import TodayRequest from "./TodayRequest";
 
@@ -31,6 +29,77 @@ const { SubMenu } = Menu;
 
 const SideBar = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const state = useSelector((state) => state);
+  const todayPosts = state.barchartReducer.todayPosts;
+  console.log(todayPosts);
+  let sendPercentage = {};
+  let receivePercentage = {};
+
+  if (Object.keys(todayPosts).length) {
+    let tSend, tReceive, ySend, yReceive;
+
+    todayPosts.todayRequest.forEach((today) => {
+      if (today._id === "send") tSend = today.count;
+      if (today._id === "receive") tReceive = today.count;
+    });
+
+    todayPosts.yesterdayRequest.forEach((yesterday) => {
+      if (yesterday._id === "send") ySend = yesterday.count;
+      if (yesterday._id === "receive") yReceive = yesterday.count;
+    });
+    console.log(tSend, ySend);
+    console.log(tReceive, yReceive);
+
+    sendPercentage.percent = tSend / ySend;
+    if (sendPercentage.percent > 1) {
+      sendPercentage.percent = sendPercentage.percent - 1;
+      sendPercentage.trend = "increase";
+    } else if (sendPercentage.percent < 1) {
+      sendPercentage.trend = "descrease";
+    } else {
+      sendPercentage.trend = "equal";
+    }
+
+    receivePercentage.percent = tReceive / yReceive;
+
+    if (receivePercentage.percent > 1) {
+      receivePercentage.percent = receivePercentage.percent - 1;
+      receivePercentage.trend = "increase";
+    } else if (receivePercentage.percent < 1) {
+      receivePercentage.trend = "descrease";
+    } else {
+      receivePercentage.trend = "equal";
+    }
+  }
+  console.log(sendPercentage);
+  console.log(receivePercentage);
+
+  const StatisticStatus = ({ value, trend }) => {
+    return (
+      <Statistic
+        title={`${trend}`}
+        value={value * 100}
+        precision={2}
+        valueStyle={
+          trend === "increase"
+            ? { color: "#3f8600" }
+            : trend === "decrease"
+            ? { color: "#cf1322" }
+            : { color: "#3f8600" }
+        }
+        prefix={
+          trend === "increase" ? (
+            <ArrowUpOutlined />
+          ) : trend === "decrease" ? (
+            <ArrowDownOutlined />
+          ) : (
+            <MinusOutlined />
+          )
+        }
+        suffix="%"
+      />
+    );
+  };
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
@@ -64,14 +133,14 @@ const SideBar = () => {
                   className="infoCard"
                 >
                   <TodayRequest />
-                  <Statistic
-                    title="Increase of"
-                    value={11.28}
-                    precision={2}
-                    valueStyle={{ color: "#3f8600" }}
-                    prefix={<ArrowUpOutlined />}
-                    suffix="%"
-                  />
+                  {receivePercentage !== undefined ? (
+                    <StatisticStatus
+                      value={receivePercentage.percent}
+                      trend={receivePercentage.trend}
+                    />
+                  ) : (
+                    <h1>Loading</h1>
+                  )}
                 </Card>
               </Col>
               <Col span={8}>
@@ -81,14 +150,14 @@ const SideBar = () => {
                   className="infoCard"
                 >
                   <DailyDonate />
-                  <Statistic
-                    title="Decrease of"
-                    value={9.3}
-                    precision={2}
-                    valueStyle={{ color: "#cf1322" }}
-                    prefix={<ArrowDownOutlined />}
-                    suffix="%"
-                  />
+                  {sendPercentage !== undefined ? (
+                    <StatisticStatus
+                      value={sendPercentage.percent}
+                      trend={sendPercentage.trend}
+                    />
+                  ) : (
+                    <h1>Loading</h1>
+                  )}
                 </Card>
               </Col>
               <Col span={8}>

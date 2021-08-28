@@ -48,12 +48,7 @@ function DoughnutChartReceiver() {
     "adult clothes"
   );
   const totalReceivemeat = gettotalReceiveTicketOf("receive", "meat");
-  console.log("rice", totalReceiveRice);
-  console.log("egg", totalReceiveEgg);
-  console.log("totalReceivenoodles", totalReceivenoodles);
-  console.log("totalReceiveveggies", totalReceiveveggies);
-  console.log("totalReceivechildrenclothes", totalReceivechildrenclothes);
-  console.log("totalReceivemask", totalReceivemask);
+
   const data = {
     labels: [
       "rice",

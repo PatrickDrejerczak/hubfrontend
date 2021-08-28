@@ -5,6 +5,7 @@ const initialState = {
   send: [],
   itemChart: {},
   loading: false,
+  todayPosts: {},
 };
 
 const barchartReducer = (state = initialState, action) => {
@@ -30,6 +31,13 @@ const barchartReducer = (state = initialState, action) => {
     case types.GET_ITEM_CHART_SUCCESS:
       return { ...state, itemChart: payload, loading: false };
     case types.GET_ITEM_CHART_FAILURE:
+      return { ...state, loading: false };
+
+    case types.GET_TODAY_POST_REQUEST:
+      return { ...state, loading: true };
+    case types.GET_TODAY_POST_SUCCESS:
+      return { ...state, todayPosts: payload, loading: false };
+    case types.GET_TODAY_POST_FAILURE:
       return { ...state, loading: false };
 
     default:
