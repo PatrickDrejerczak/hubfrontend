@@ -34,5 +34,21 @@ const getSend = () => async (dispatch) => {
   }
 };
 
-const barchartActions = { getReceive, getSend };
+const getItemChart = () => async (dispatch) => {
+  dispatch({ type: types.GET_ITEM_CHART_REQUEST, payload: null });
+  try {
+    let url = `${process.env.REACT_APP_BACKEND_API}charts/item`;
+    const res = await api.get(url);
+
+    dispatch({
+      type: types.GET_ITEM_CHART_SUCCESS,
+      payload: res.data.data[0],
+    });
+  } catch (error) {
+    toast.error(error.message);
+    dispatch({ type: types.GET_ITEM_CHART_FAILURE, payload: error });
+  }
+};
+
+const barchartActions = { getReceive, getSend, getItemChart };
 export default barchartActions;
