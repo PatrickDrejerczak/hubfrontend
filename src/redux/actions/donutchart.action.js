@@ -7,7 +7,7 @@ const getPending = () => async (dispatch) => {
   try {
     let url = `${process.env.REACT_APP_BACKEND_API}charts/donut`;
     const data = await api.get(url);
-    console.log("this data", data);
+
     dispatch({
       type: types.GET_PENDING_SUCCESS,
       payload: data.data.completed,
@@ -23,7 +23,7 @@ const getCompleted = () => async (dispatch) => {
   try {
     let url = `${process.env.REACT_APP_BACKEND_API}charts/donut`;
     const data = await api.get(url);
-    console.log("this data", data);
+
     dispatch({
       type: types.GET_COMPLETED_SUCCESS,
       payload: data.data.pending,

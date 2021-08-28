@@ -35,11 +35,6 @@ const VerticalBar = () => {
   const totalDonateTwoWeek = getTotalTicketOf("donate", 2);
   const totalDonateThreeWeek = getTotalTicketOf("donate", 3);
 
-  console.log("latest", totalReqLatest);
-  console.log("oneweek", totalReqOneWeek);
-  console.log("twoweek", totalReqTwoWeek);
-  console.log("twoweek", totalReqThreeWeek);
-
   const data = {
     labels: ["Three week ago", "Two week ago", "One week ago", "Latest"],
 

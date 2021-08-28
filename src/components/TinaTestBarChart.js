@@ -25,16 +25,13 @@ const TinaTestBarChart = () => {
   let totalSend = [];
   let totalReceive = [];
   let data;
-  console.log(Object.keys(items).length);
-  console.log(items);
-  console.log(labels);
+
   if (Object.keys(items).length) {
     items.receive.forEach((r) => {
       labels.push(r._id);
       totalReceive.push(r.count);
     });
     totalSend = items.send.map((s) => s.count);
-    console.log(labels);
 
     data = {
       labels: labels,
@@ -63,7 +60,7 @@ const TinaTestBarChart = () => {
       ],
     },
   };
-  console.log("data", data);
+
   return (
     <div>
       <div className="header">

@@ -2,39 +2,33 @@ import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import ticketActions from "../redux/actions/ticket.action";
 import { useDispatch, useSelector } from "react-redux";
-const BACKEND_API = process.env.REACT_APP_BACKEND_API;
+import barchartActions from "../redux/actions/barchart.action";
 
 const TodayRequest = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(ticketActions.getTickets());
+    dispatch(barchartActions.getTodayPost());
   }, [dispatch]);
 
   const state = useSelector((state) => state);
-  const tickets = state.ticketReducer.tickets;
-  const loading = state.ticketReducer.loading;
+  const todayPosts = state.barchartReducer.todayPosts;
 
-  function getTotalTicketOf(ticketType) {
-    let totalTickets = 0;
-    tickets.map((ticket) => {
-      if (ticket.ticketType === ticketType) {
-        totalTickets += 1;
-      }
-    });
-    return totalTickets;
+  console.log("today", todayPosts);
+  let totalReceivePost;
+  if (Object.keys(todayPosts).length) {
+    totalReceivePost = todayPosts.todayRequest.filter(
+      (request) => request._id === "receive"
+    );
   }
-
-  const totalTickets = getTotalTicketOf("receive");
-
-  console.log(totalTickets);
-
+  console.log(totalReceivePost);
   return (
     <div>
       <div className="header">
         <h1 className="title" style={{ fontSize: 23 }}>
           {" "}
-          {totalTickets} requests{" "}
+          {totalReceivePost !== undefined && totalReceivePost[0]?.count}{" "}
+          requests{" "}
         </h1>
       </div>
     </div>
