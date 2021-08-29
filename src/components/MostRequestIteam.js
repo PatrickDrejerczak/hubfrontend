@@ -20,7 +20,7 @@ const MostRequestIteam = () => {
   const MostRequestItem = "fdf";
   const MostWanna = "dd";
   itemChart?.receive?.sort((a, b) => b.count - a.count);
-  const total = itemChart?.receive.reduce(
+  const total = itemChart?.receive?.reduce(
     (total, current) => total + current.count,
     0
   );
